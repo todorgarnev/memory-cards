@@ -32,9 +32,14 @@ const setSelectedItemsToUnactive = (array: any[], firstItemKey: number, secondIt
   return updatedArray;
 }
 
+const deepCopy = (array: any[]): any[] => {
+  return array.map(el => ({ ...el }));
+}
+
 export {
   unselectAll,
   setSelectedItem,
   setSelectedItemsToUnactive,
-  checkAllSelected
+  checkAllSelected,
+  deepCopy
 };
