@@ -22,21 +22,15 @@ const App = () => {
   ]);
 
   useEffect(() => {
-    console.log(selectedNumbers);
-    console.log(selectedNumbers.length);
-
-    if (selectedNumbers.length > 1 && selectedNumbers[0].value === selectedNumbers[1].value) {
-      console.log('TRUE');
-      setItems(Utils.setSelectedItemsToUnactive(items, selectedNumbers[0].key, selectedNumbers[1].key));
-    } else {
-      console.log('FALSE');
-    }
-
-    if (selectedNumbers.length > 1) {
+    if (selectedNumbers.length === 2) {
+      if (selectedNumbers[0].value === selectedNumbers[1].value) {
+        setItems((items: any) => Utils.setSelectedItemsToUnactive(items, selectedNumbers[0].key, selectedNumbers[1].key));
+      } else {
+        setItems((items: any) => Utils.unselectAll(items));
+      }
       setSelectedNumbers([]);
-      setItems(Utils.unselectAll(items));
     }
-  }, [selectedNumbers, items]);
+  }, [selectedNumbers]);
 
   const getSelectedItem = (selectedItem: any) => {
     setSelectedNumbers([...selectedNumbers, selectedItem]);
@@ -45,11 +39,14 @@ const App = () => {
 
   return (
     <div className="app">
-      {
-        items.map((item: any) => {
-          return <Card key={item.key} item={item} getSelectedItem={getSelectedItem} />
-        })
-      }
+      <div className="game">
+        {
+          items.map((item: any) => {
+            return <Card key={item.key} item={item} getSelectedItem={getSelectedItem} />
+          })
+        }
+      </div>
+      {Utils.checkAllSelected(items) ? <div className='win'>Congrats</div> : ''}
     </div>
   );
 }

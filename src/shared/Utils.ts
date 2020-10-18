@@ -1,4 +1,4 @@
-const unselectAll = (array: any): any[] => {
+const unselectAll = (array: any[]): any[] => {
   return array.map((item: any) => ({
     key: item.key,
     value: item.value,
@@ -7,7 +7,11 @@ const unselectAll = (array: any): any[] => {
   }));
 }
 
-const setSelectedItem = (array: any, itemKey: number): any[] => {
+const checkAllSelected = (array: any[]): boolean => {
+  return array.every((item: any) => item.active === false);
+}
+
+const setSelectedItem = (array: any[], itemKey: number): any[] => {
   const updatedArray = [...array];
   const selectedItem: any = updatedArray.findIndex((item: any) => item.key === itemKey);
 
@@ -15,7 +19,7 @@ const setSelectedItem = (array: any, itemKey: number): any[] => {
   return updatedArray;
 }
 
-const setSelectedItemsToUnactive = (array: any, firstItemKey: number, secondItemKey: number): any[] => {
+const setSelectedItemsToUnactive = (array: any[], firstItemKey: number, secondItemKey: number): any[] => {
   const updatedArray = [...array];
   const firstSelectedItem: any = updatedArray.findIndex((item: any) => item.key === firstItemKey);
   const secondSelectedItem: any = updatedArray.findIndex((item: any) => item.key === secondItemKey);
@@ -28,4 +32,9 @@ const setSelectedItemsToUnactive = (array: any, firstItemKey: number, secondItem
   return updatedArray;
 }
 
-export { unselectAll, setSelectedItem, setSelectedItemsToUnactive };
+export {
+  unselectAll,
+  setSelectedItem,
+  setSelectedItemsToUnactive,
+  checkAllSelected
+};
