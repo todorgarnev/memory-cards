@@ -1,0 +1,21 @@
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  width: 5rem;
+  height: 5rem;
+  border: 2px solid deepskyblue;
+  font-size: 2rem;
+  font-weight: 600;
+
+  &.clicked {
+    pointer-events: none;
+    background-color: #ddd;
+    border-color: #ddd;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
