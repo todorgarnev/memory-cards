@@ -9,7 +9,7 @@
   font-size: 2rem;
   font-weight: 600;
 
-  &.clicked {
+  &.selected {
     pointer-events: none;
     background-color: #ddd;
     border-color: #ddd;

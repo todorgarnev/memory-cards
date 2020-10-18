@@ -1,21 +1,23 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import './Card.scss';
 
 interface CardProps {
-  number: number,
-  setNumber: Function
+  item: {
+    key: number,
+    value: number,
+    selected: boolean,
+    active: boolean
+  },
+  getSelectedItem: Function
 }
 
 const Card: FunctionComponent<CardProps> = (props: CardProps) => {
-  const [isClicked, setIsClicked] = useState<boolean>(false);
-
   const onClick = () => {
-    setIsClicked(true);
-    props.setNumber(props.number);
+    props.getSelectedItem(props.item);
   }
 
   return (
-    <div className={`card ${isClicked ? 'clicked' : ''}`} onClick={onClick}>{props.number}</div>
+    <div className={`card ${props.item.selected ? 'selected' : ''}`} onClick={onClick}>{props.item.value}</div>
   )
 }
 
