@@ -6,6 +6,7 @@ import * as Utils from './shared/Utils';
 
 const App = () => {
   const [selectedNumbers, setSelectedNumbers] = useState<any>([]);
+  const [win, setWin] = useState<boolean>(false);
   const [items, setItems] = useState<any>([
     { key: 0, value: 0, selected: false, active: true },
     { key: 1, value: 1, selected: false, active: true },
@@ -25,12 +26,13 @@ const App = () => {
     if (selectedNumbers.length === 2) {
       if (selectedNumbers[0].value === selectedNumbers[1].value) {
         setItems((items: any) => Utils.setSelectedItemsToUnactive(items, selectedNumbers[0].key, selectedNumbers[1].key));
+        setWin(() => Utils.checkAllSelected(items));
       } else {
         setItems((items: any) => Utils.unselectAll(items));
       }
       setSelectedNumbers([]);
     }
-  }, [selectedNumbers]);
+  }, [selectedNumbers, items]);
 
   const getSelectedItem = (selectedItem: any) => {
     setSelectedNumbers([...selectedNumbers, selectedItem]);
@@ -46,7 +48,7 @@ const App = () => {
           })
         }
       </div>
-      {Utils.checkAllSelected(items) ? <div className='win'>Congrats</div> : ''}
+      {win ? <div className='win'>Congrats</div> : ''}
     </div>
   );
 }
