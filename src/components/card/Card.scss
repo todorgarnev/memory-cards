@@ -1,18 +1,31 @@
 .card {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
   width: 5rem;
+  background-color: #ddd;
+  border-color: #ddd;
   height: 5rem;
-  border: 2px solid deepskyblue;
   font-size: 2rem;
   font-weight: 600;
 
-  &.selected {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: orangered;
+    border: 2px solid red;
+    transition: all 0.3s ease;
+  }
+
+  &.selected::after {
+    opacity: 0;
     pointer-events: none;
-    background-color: #ddd;
-    border-color: #ddd;
   }
 
   &:hover {

@@ -30,7 +30,9 @@ const App = () => {
         setItems((items: any) => Utils.setSelectedItemsToUnactive(items, selectedItems[0].key, selectedItems[1].key));
         setWin(() => Utils.checkAllSelected(items));
       } else {
-        setItems((items: any) => Utils.unselectAll(items));
+        setTimeout(() => {
+          setItems((items: any) => Utils.unselectAll(items));
+        }, 1000);
       }
       setSelectedItems([]);
     }
@@ -43,6 +45,7 @@ const App = () => {
 
   const startAgain = (): void => {
     setItems(Utils.deepCopy(initialGameItems));
+    setWin(false);
   }
 
   return (
@@ -55,7 +58,7 @@ const App = () => {
         }
       </div>
       {win ? <div className='win'>Congrats</div> : ''}
-      <button className='start-game' onClick={startAgain}>Start again</button>
+      {win ? <button className='start-game' onClick={startAgain}>Start again</button> : ''}
     </div>
   );
 }
