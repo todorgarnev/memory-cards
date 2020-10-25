@@ -1,13 +1,9 @@
 import React, { FunctionComponent } from 'react';
+import { ICard } from '../../shared/Card.interface';
 import './Card.scss';
 
 interface CardProps {
-  item: {
-    key: number,
-    value: number,
-    selected: boolean,
-    active: boolean
-  },
+  item: ICard,
   getSelectedItem: Function
 }
 

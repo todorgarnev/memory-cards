@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './App.scss';
 
 import Card from './components/card/Card';
+import { ICard } from './shared/Card.interface';
 import * as Utils from './shared/Utils';
 
 const App = () => {
-  const [selectedItems, setSelectedItems] = useState<any>([]);
-  const [items, setItems] = useState<any>([]);
+  const [selectedItems, setSelectedItems] = useState<ICard[]>([]);
+  const [items, setItems] = useState<ICard[]>([]);
   const [blocked, setBlocked] = useState<boolean>(false);
   const [win, setWin] = useState<boolean>(false);
 
@@ -19,12 +20,12 @@ const App = () => {
       setBlocked(true);
 
       if (selectedItems[0].value === selectedItems[1].value) {
-        setItems((items: any) => Utils.setSelectedItemsToUnactive(items, selectedItems[0].key, selectedItems[1].key));
+        setItems((items: ICard[]) => Utils.setSelectedItemsToUnactive(items, selectedItems[0].key, selectedItems[1].key));
         setWin(() => Utils.checkAllSelected(items));
         setBlocked(false);
       } else {
         setTimeout(() => {
-          setItems((items: any) => Utils.unselectAll(items));
+          setItems((items: ICard[]) => Utils.unselectAll(items));
           setBlocked(false);
         }, 1000);
       }
@@ -33,7 +34,7 @@ const App = () => {
     }
   }, [selectedItems, items]);
 
-  const getSelectedItem = (selectedItem: any) => {
+  const getSelectedItem = (selectedItem: ICard) => {
     if (selectedItems.length < 2) {
       setSelectedItems([...selectedItems, selectedItem]);
       setItems(Utils.setSelectedItem(items, selectedItem.key));
@@ -49,7 +50,7 @@ const App = () => {
     <div className="app">
       <div className={`game${blocked ? ' blocked' : ''}`}>
         {
-          items.map((item: any) => {
+          items.map((item: ICard) => {
             return <Card key={item.key} item={item} getSelectedItem={getSelectedItem} />
           })
         }

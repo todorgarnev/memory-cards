@@ -1,5 +1,7 @@
-const unselectAll = (array: any[]): any[] => {
-  return array.map((item: any) => ({
+import { ICard } from "./Card.interface";
+
+const unselectAll = (array: ICard[]): ICard[] => {
+  return array.map((item: ICard) => ({
     key: item.key,
     value: item.value,
     active: item.active,
@@ -7,22 +9,22 @@ const unselectAll = (array: any[]): any[] => {
   }));
 }
 
-const checkAllSelected = (array: any[]): boolean => {
-  return array.every((item: any) => item.active === false);
+const checkAllSelected = (array: ICard[]): boolean => {
+  return array.every((item: ICard) => item.active === false);
 }
 
-const setSelectedItem = (array: any[], itemKey: number): any[] => {
+const setSelectedItem = (array: ICard[], itemKey: number): ICard[] => {
   const updatedArray = [...array];
-  const selectedItem: any = updatedArray.findIndex((item: any) => item.key === itemKey);
+  const selectedItem: number = updatedArray.findIndex((item: ICard) => item.key === itemKey);
 
   updatedArray[selectedItem].selected = true;
   return updatedArray;
 }
 
-const setSelectedItemsToUnactive = (array: any[], firstItemKey: number, secondItemKey: number): any[] => {
+const setSelectedItemsToUnactive = (array: ICard[], firstItemKey: number, secondItemKey: number): ICard[] => {
   const updatedArray = [...array];
-  const firstSelectedItem: any = updatedArray.findIndex((item: any) => item.key === firstItemKey);
-  const secondSelectedItem: any = updatedArray.findIndex((item: any) => item.key === secondItemKey);
+  const firstSelectedItem: number = updatedArray.findIndex((item: ICard) => item.key === firstItemKey);
+  const secondSelectedItem: number = updatedArray.findIndex((item: ICard) => item.key === secondItemKey);
 
   updatedArray[firstSelectedItem].selected = true;
   updatedArray[secondSelectedItem].selected = true;
@@ -32,17 +34,17 @@ const setSelectedItemsToUnactive = (array: any[], firstItemKey: number, secondIt
   return updatedArray;
 }
 
-const getInitialGameItems = (size: number): any[] => {
-  const test: any[] = [];
+const getInitialGameItems = (size: number): ICard[] => {
+  const arr: ICard[] = [];
 
   for (let i = 0; i < size; i++) {
-    test.push({ key: i, value: Math.floor(i / 2), selected: false, active: true });
+    arr.push({ key: i, value: Math.floor(i / 2), selected: false, active: true });
   }
 
-  return shuffleArray(test);
+  return shuffleArray(arr);
 }
 
-const shuffleArray = (array: any[]): any[] => {
+const shuffleArray = (array: ICard[]): ICard[] => {
   return array.sort(() => Math.random() - 0.5);
 }
 
