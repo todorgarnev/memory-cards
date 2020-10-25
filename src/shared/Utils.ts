@@ -32,8 +32,18 @@ const setSelectedItemsToUnactive = (array: any[], firstItemKey: number, secondIt
   return updatedArray;
 }
 
-const deepCopy = (array: any[]): any[] => {
-  return array.map(el => ({ ...el }));
+const getInitialGameItems = (size: number): any[] => {
+  const test: any[] = [];
+
+  for (let i = 0; i < size; i++) {
+    test.push({ key: i, value: Math.floor(i / 2), selected: false, active: true });
+  }
+
+  return shuffleArray(test);
+}
+
+const shuffleArray = (array: any[]): any[] => {
+  return array.sort(() => Math.random() - 0.5);
 }
 
 export {
@@ -41,5 +51,5 @@ export {
   setSelectedItem,
   setSelectedItemsToUnactive,
   checkAllSelected,
-  deepCopy
+  getInitialGameItems
 };
