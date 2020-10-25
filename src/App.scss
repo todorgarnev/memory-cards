@@ -9,6 +9,10 @@
     margin: 0 auto;
     width: 17rem;
     height: 24rem;
+
+    &.blocked {
+      pointer-events: none;
+    }
   }
 
   .win {

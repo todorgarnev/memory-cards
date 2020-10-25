@@ -17,7 +17,7 @@ const Card: FunctionComponent<CardProps> = (props: CardProps) => {
   }
 
   return (
-    <div className={`card ${props.item.selected ? 'selected' : ''}`} onClick={onClick}>{props.item.value}</div>
+    <div className={`card${props.item.selected ? ' selected' : ''}`} onClick={onClick}>{props.item.value}</div>
   )
 }
 
