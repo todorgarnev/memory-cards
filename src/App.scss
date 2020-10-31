@@ -2,14 +2,14 @@
   padding: 5rem;
 
   .game {
-    // use grid maybe
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 10rem);
+    grid-template-rows: repeat(auto-fill, 10rem);
+    justify-content: center;
+    gap: 1.5rem;
     margin: 0 auto;
     width: 50%;
-    height: 37rem;
+    max-width: 50rem;
 
     &.blocked {
       pointer-events: none;

@@ -42,7 +42,7 @@
   }
 
   &.inactive {
-    animation: pulse 1s linear 0.8s forwards;
+    animation: rotate 1s linear 0.8s forwards;
   }
 
   &.selected {
