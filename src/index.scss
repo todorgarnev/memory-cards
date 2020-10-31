@@ -38,6 +38,19 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 1.6rem;
   background: darkcyan;
+
+  .sign {
+    position: fixed;
+    bottom: -2rem;
+    right: -1rem;
+    width: 6rem;
+    height: 10rem;
+    background-image: url("./assets//images/sign.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(0.5);
+  }
 }
 
 ul[class],

@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { ICard } from '../../shared/Card.interface';
+import { ICard } from '../../shared/card.interface';
 import './Card.scss';
 
 interface CardProps {
@@ -13,7 +13,7 @@ const Card: FunctionComponent<CardProps> = (props: CardProps) => {
   }
 
   return (
-    <div className='card' onClick={getSelectedItem}>
+    <div className={`card${props.item.selected ? ' selected' : ''}${!props.item.active ? ' inactive' : ''}`} onClick={getSelectedItem}>
       <div className='card-inner'>
         <div className='card-front'></div>
         <div className='card-back'>{props.item.value}</div>

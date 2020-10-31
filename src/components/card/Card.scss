@@ -41,7 +41,11 @@
     cursor: pointer;
   }
 
-  &:hover .card-inner {
+  &.inactive {
+    visibility: hidden;
+  }
+
+  &.selected .card-inner {
     transform: rotateY(180deg);
   }
 }

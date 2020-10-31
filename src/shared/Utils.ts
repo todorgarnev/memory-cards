@@ -1,4 +1,4 @@
-import { ICard } from "./Card.interface";
+import { ICard } from "./card.interface";
 
 const unselectAll = (array: ICard[]): ICard[] => {
   return array.map((item: ICard) => ({

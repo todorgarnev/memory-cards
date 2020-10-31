@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './App.scss';
 
 import Card from './components/card/Card';
-import { ICard } from './shared/Card.interface';
-import * as Utils from './shared/Utils';
+import { ICard } from './shared/card.interface';
+import * as Utils from './shared/utils';
+import * as Constants from './shared/constants';
 
 const App = () => {
   const [selectedItems, setSelectedItems] = useState<ICard[]>([]);
@@ -20,15 +21,18 @@ const App = () => {
       setBlocked(true);
 
       if (selectedItems[0].value === selectedItems[1].value) {
-        setItems((items: ICard[]) => Utils.setSelectedItemsToUnactive(items, selectedItems[0].key, selectedItems[1].key));
         setWin(() => Utils.checkAllSelected(items));
-        setBlocked(false);
+        setTimeout(() => {
+          setItems((items: ICard[]) => Utils.setSelectedItemsToUnactive(items, selectedItems[0].key, selectedItems[1].key));
+          setBlocked(false);
+        }, Constants.guessedTimeout);
       } else {
         setTimeout(() => {
           setItems((items: ICard[]) => Utils.unselectAll(items));
           setBlocked(false);
-        }, 1000);
+        }, Constants.notGuessedTimeout);
       }
+
 
       setSelectedItems([]);
     }
