@@ -8,13 +8,18 @@ interface CardProps {
 }
 
 const Card: FunctionComponent<CardProps> = (props: CardProps) => {
-  const onClick = () => {
+  const getSelectedItem = () => {
     props.getSelectedItem(props.item);
   }
 
   return (
-    <div className={`card${props.item.selected ? ' selected' : ''}`} onClick={onClick}>{props.item.value}</div>
-  )
+    <div className='card' onClick={getSelectedItem}>
+      <div className='card-inner'>
+        <div className='card-front'></div>
+        <div className='card-back'>{props.item.value}</div>
+      </div>
+    </div>
+  );
 }
 
 export default Card;

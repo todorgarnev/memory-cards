@@ -2,13 +2,14 @@
   padding: 5rem;
 
   .game {
+    // use grid
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     margin: 0 auto;
-    width: 17rem;
-    height: 24rem;
+    width: 50%;
+    height: 37rem;
 
     &.blocked {
       pointer-events: none;

@@ -27,8 +27,8 @@ const setSelectedItemsToUnactive = (array: ICard[], firstItemKey: number, second
   const secondSelectedItem: number = updatedArray.findIndex((item: ICard) => item.key === secondItemKey);
 
   updatedArray[firstSelectedItem].selected = true;
-  updatedArray[secondSelectedItem].selected = true;
   updatedArray[firstSelectedItem].active = false;
+  updatedArray[secondSelectedItem].selected = true;
   updatedArray[secondSelectedItem].active = false;
 
   return updatedArray;
