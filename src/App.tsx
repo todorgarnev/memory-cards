@@ -21,10 +21,10 @@ const App = () => {
       setBlocked(true);
 
       if (selectedItems[0].value === selectedItems[1].value) {
-        setWin(() => Utils.checkAllSelected(items));
+        setItems((items: ICard[]) => Utils.setSelectedItemsToUnactive(items, selectedItems[0].key, selectedItems[1].key));
         setTimeout(() => {
-          setItems((items: ICard[]) => Utils.setSelectedItemsToUnactive(items, selectedItems[0].key, selectedItems[1].key));
           setBlocked(false);
+          setWin(() => Utils.checkAllSelected(items));
         }, Constants.guessedTimeout);
       } else {
         setTimeout(() => {
@@ -32,7 +32,6 @@ const App = () => {
           setBlocked(false);
         }, Constants.notGuessedTimeout);
       }
-
 
       setSelectedItems([]);
     }

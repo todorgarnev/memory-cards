@@ -42,10 +42,86 @@
   }
 
   &.inactive {
-    visibility: hidden;
+    animation: pulse 1s linear 0.8s forwards;
+  }
+
+  &.selected {
+    pointer-events: none;
   }
 
   &.selected .card-inner {
     transform: rotateY(180deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(0.5) rotate(160deg);
+  }
+  100% {
+    transform: scale(0) rotate(360deg);
+    visibility: hidden;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(3px, 4px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-3px, -4px) rotate(-5deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(0deg);
+  }
+  30% {
+    transform: translate(3px, 4px) rotate(5deg);
+  }
+  40% {
+    transform: translate(1px, -2px) rotate(0deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-5deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(5deg);
+  }
+  80% {
+    transform: translate(-1px, -3px) rotate(0deg);
+  }
+  90% {
+    transform: translate(4px, 2px) rotate(-5deg);
+  }
+  100% {
+    transform: translate(1px, -3px) rotate(0deg);
+    visibility: hidden;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(0.9);
+  }
+  40% {
+    transform: scale(1.1);
+  }
+  60% {
+    transform: scale(0.9);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    visibility: hidden;
   }
 }
