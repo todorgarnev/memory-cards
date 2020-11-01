@@ -21,3 +21,11 @@
     text-align: center;
   }
 }
+
+@media (orientation: portrait) {
+  .app .game {
+    grid-template-columns: repeat(auto-fill, 8rem);
+    width: 70vmin;
+    gap: 1rem;
+  }
+}

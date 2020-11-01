@@ -235,3 +235,9 @@
     visibility: hidden;
   }
 }
+
+@media (orientation: portrait) {
+  .card {
+    transform: scale(0.8);
+  }
+}
