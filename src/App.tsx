@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import './App.scss';
 
 import Card from './components/card/Card';
@@ -6,7 +6,7 @@ import { ICard } from './shared/card.interface';
 import * as Utils from './shared/utils';
 import * as Constants from './shared/constants';
 
-const App = () => {
+const App: FunctionComponent = () => {
   const [selectedItems, setSelectedItems] = useState<ICard[]>([]);
   const [items, setItems] = useState<ICard[]>([]);
   const [blocked, setBlocked] = useState<boolean>(false);

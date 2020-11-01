@@ -31,9 +31,119 @@
       align-items: center;
       font-size: 4rem;
       font-weight: 600;
-      background-color: dodgerblue;
+      background-color: whitesmoke;
+      // background-color: dodgerblue; // when numbers
       color: rebeccapurple;
       transform: rotateY(180deg);
+
+      &.animals {
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      &.animals-0 {
+        background-image: url("../../assets/images/animals/0.png");
+      }
+      &.animals-1 {
+        background-image: url("../../assets/images/animals/1.png");
+      }
+      &.animals-2 {
+        background-image: url("../../assets/images/animals/2.png");
+      }
+      &.animals-3 {
+        background-image: url("../../assets/images/animals/3.png");
+      }
+      &.animals-4 {
+        background-image: url("../../assets/images/animals/4.png");
+      }
+      &.animals-5 {
+        background-image: url("../../assets/images/animals/5.png");
+      }
+      &.animals-6 {
+        background-image: url("../../assets/images/animals/6.png");
+      }
+      &.animals-7 {
+        background-image: url("../../assets/images/animals/7.png");
+      }
+      &.animals-8 {
+        background-image: url("../../assets/images/animals/8.png");
+      }
+      &.animals-9 {
+        background-image: url("../../assets/images/animals/9.png");
+      }
+      &.animals-10 {
+        background-image: url("../../assets/images/animals/10.png");
+      }
+      &.animals-11 {
+        background-image: url("../../assets/images/animals/11.png");
+      }
+      &.animals-12 {
+        background-image: url("../../assets/images/animals/12.png");
+      }
+      &.animals-13 {
+        background-image: url("../../assets/images/animals/13.png");
+      }
+      &.animals-14 {
+        background-image: url("../../assets/images/animals/14.png");
+      }
+      &.animals-15 {
+        background-image: url("../../assets/images/animals/15.png");
+      }
+
+      &.items {
+        background-image: url("../../assets/images/items/items.png");
+        background-repeat: no-repeat;
+      }
+
+      &.items-0 {
+        background-position: 0 -0.3rem;
+      }
+      &.items-1 {
+        background-position: -9.8rem -0.3rem;
+      }
+      &.items-2 {
+        background-position: -20rem -0.3rem;
+      }
+      &.items-3 {
+        background-position: -29.6rem -0.3rem;
+      }
+      &.items-4 {
+        background-position: 0 -10.3rem;
+      }
+      &.items-5 {
+        background-position: -10.2rem -10.3rem;
+      }
+      &.items-6 {
+        background-position: -20rem -10.3rem;
+      }
+      &.items-7 {
+        background-position: -30rem -10.3rem;
+      }
+      &.items-8 {
+        background-position: 0 -19.8rem;
+      }
+      &.items-9 {
+        background-position: -10rem -19.8rem;
+      }
+      &.items-10 {
+        background-position: -19.7rem -19.8rem;
+      }
+      &.items-11 {
+        background-position: -29.7rem -19.8rem;
+      }
+      &.items-12 {
+        background-position: 0 -29.8rem;
+      }
+      &.items-13 {
+        background-position: -10.3rem -29.8rem;
+      }
+      &.items-14 {
+        background-position: -20rem -29.8rem;
+      }
+      &.items-15 {
+        background-position: -30rem -29.8rem;
+      }
     }
   }
 

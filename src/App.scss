@@ -4,9 +4,8 @@
   .game {
     display: grid;
     grid-template-columns: repeat(auto-fill, 10rem);
-    grid-template-rows: repeat(auto-fill, 10rem);
     justify-content: center;
-    gap: 1.5rem;
+    gap: 2rem;
     margin: 0 auto;
     width: 50%;
     max-width: 50rem;
