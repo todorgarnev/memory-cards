@@ -8,11 +8,17 @@ interface RadioButtonProps {
   subType: string;
 }
 
-const RadioButton: FunctionComponent<RadioButtonProps> = ({ name, subType }) => (
-  <div className='option'>
-    <input type='radio' id={subType} name={name} value={subType} />
-    <label htmlFor={subType}>{subType}</label>
-  </div>
-);
+const RadioButton: FunctionComponent<RadioButtonProps> = ({ name, subType }) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+  }
+
+  return (
+    <div className='option'>
+      <input type='radio' id={subType} name={name} value={subType} onChange={(e) => onChange(e)} />
+      <label htmlFor={subType}>{subType}</label>
+    </div>
+  );
+}
 
 export default RadioButton;
