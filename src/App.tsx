@@ -3,9 +3,9 @@ import './App.scss';
 
 import Card from './components/card/Card';
 import SettingsPanel from './components/settings/SettingsPanel';
-import { ICard } from './shared/card.interface';
-import * as Utils from './shared/utils';
-import * as Constants from './shared/constants';
+import { ICard } from './shared/interfaces/ICard';
+import * as GameLogic from './shared/utils/gameLogic';
+import * as Constants from './shared/constants/constants';
 
 const App: FunctionComponent = () => {
   const [selectedItems, setSelectedItems] = useState<ICard[]>([]);
@@ -14,7 +14,7 @@ const App: FunctionComponent = () => {
   const [win, setWin] = useState<boolean>(false);
 
   useEffect(() => {
-    setItems(Utils.getInitialGameItems(12));
+    setItems(GameLogic.getInitialGameItems(12));
   }, []);
 
   useEffect(() => {
@@ -22,14 +22,14 @@ const App: FunctionComponent = () => {
       setBlocked(true);
 
       if (selectedItems[0].value === selectedItems[1].value) {
-        setItems((items: ICard[]) => Utils.setSelectedItemsToUnactive(items, selectedItems[0].key, selectedItems[1].key));
+        setItems((items: ICard[]) => GameLogic.setSelectedItemsToUnactive(items, selectedItems[0].key, selectedItems[1].key));
         setTimeout(() => {
           setBlocked(false);
-          setWin(() => Utils.checkAllSelected(items));
+          setWin(() => GameLogic.checkAllSelected(items));
         }, Constants.guessedTimeout);
       } else {
         setTimeout(() => {
-          setItems((items: ICard[]) => Utils.unselectAll(items));
+          setItems((items: ICard[]) => GameLogic.unselectAll(items));
           setBlocked(false);
         }, Constants.notGuessedTimeout);
       }
@@ -41,12 +41,12 @@ const App: FunctionComponent = () => {
   const getSelectedItem = (selectedItem: ICard) => {
     if (selectedItems.length < 2) {
       setSelectedItems([...selectedItems, selectedItem]);
-      setItems(Utils.setSelectedItem(items, selectedItem.key));
+      setItems(GameLogic.setSelectedItem(items, selectedItem.key));
     }
   }
 
   const startAgain = (): void => {
-    setItems(Utils.getInitialGameItems(12));
+    setItems(GameLogic.getInitialGameItems(12));
     setWin(false);
   }
 

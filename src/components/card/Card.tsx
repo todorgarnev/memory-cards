@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { ICard } from '../../shared/card.interface';
+import { ICard } from '../../shared/interfaces/ICard';
 import './Card.scss';
 
 interface CardProps {
