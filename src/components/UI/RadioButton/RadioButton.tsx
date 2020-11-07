@@ -13,6 +13,7 @@ const RadioButton: FunctionComponent<RadioButtonProps> = ({ name, subType }) => 
     console.log(e.target.value);
   }
 
+  // add underline under label on hover
   return (
     <div className='option'>
       <input type='radio' id={subType} name={name} value={subType} onChange={(e) => onChange(e)} />

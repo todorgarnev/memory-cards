@@ -1,6 +1,7 @@
 .settings-panel {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   margin: 0 auto 5rem;
   width: 70%;
 }

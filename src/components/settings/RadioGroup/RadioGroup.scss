@@ -1,9 +1,10 @@
 .radio-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+
   .title {
     margin-bottom: 1rem;
-    text-align: center;
-  }
-
-  .options-section {
   }
 }

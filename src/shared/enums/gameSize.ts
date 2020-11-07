@@ -1,6 +1,6 @@
 export enum GameSize {
-  Small = '9 cards',
+  Small = '8 cards',
   Medium = '16 cards',
-  Large = '25 cards',
+  Large = '24 cards',
   NextLevel = '32 cards'
 }
