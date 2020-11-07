@@ -1,16 +1,18 @@
 import React, { FunctionComponent } from 'react';
 import './RadioButton.scss';
 
-interface RadioButtonProps { }
+import { InputGroupName } from '../../../shared/enums/inputGroupName';
 
-const RadioButton: FunctionComponent<RadioButtonProps> = () => {
-
-  return (
-    <div className="option">
-      <input type='radio' id='numbers' name='bgType' value='numbers' />
-      <label htmlFor='numbers'>Numbers</label>
-    </div>
-  );
+interface RadioButtonProps {
+  name: InputGroupName;
+  subType: string;
 }
+
+const RadioButton: FunctionComponent<RadioButtonProps> = ({ name, subType }) => (
+  <div className='option'>
+    <input type='radio' id={subType} name={name} value={subType} />
+    <label htmlFor={subType}>{subType}</label>
+  </div>
+);
 
 export default RadioButton;

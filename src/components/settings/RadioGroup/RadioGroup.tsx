@@ -3,7 +3,9 @@ import './RadioGroup.scss';
 
 import { CardBackgroundType } from '../../../shared/enums/cardBackgroundType';
 import { GroupType } from '../../../shared/enums/groupType';
+import { InputGroupName } from '../../../shared/enums/inputGroupName';
 import RadioButton from '../../UI/RadioButton/RadioButton';
+import * as SettingsPanel from '../../../shared/utils/settingsPanel';
 
 interface RadioGroupProps {
   groupType: GroupType;
@@ -11,24 +13,20 @@ interface RadioGroupProps {
 
 const RadioGroup: FunctionComponent<RadioGroupProps> = ({ groupType }) => {
 
-  // maybe a radio buttons component which set the choice in global context
-  // store different radio options in contants
   return (
     <div className='radio-group'>
-      <h4 className='title'>{groupType}:</h4>
+      <h4 className='title'>{groupType}</h4>
 
-      <div className="options-section">
-        <RadioButton />
+      <div className='options-section'>
+        {
+          SettingsPanel.getGroupSubTypeArray(groupType).map((item: string, index: number) => {
+            const subType: string = SettingsPanel.getGroupSubType(groupType)[item];
+            const name: InputGroupName = SettingsPanel.getGroupName(groupType);
 
-        <div className="option">
-          <input type='radio' id='animals' name='bgType' value='animals' />
-          <label htmlFor='animals'>Animals</label>
-        </div>
-
-        <div className="option">
-          <input type='radio' id='items' name='bgType' value='items' />
-          <label htmlFor='items'>Items</label>
-        </div>
+            console.log('2 >>', SettingsPanel.getGroupSubType(groupType)[item]);
+            return <RadioButton key={index} name={name} subType={subType} />
+          })
+        }
       </div>
     </div>
 

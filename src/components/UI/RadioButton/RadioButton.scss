@@ -1,5 +1,6 @@
 .option {
   margin-bottom: 1rem;
+  padding-left: 1rem;
 
   input[type="radio"] {
     position: relative;
@@ -8,6 +9,7 @@
 
   label {
     position: relative;
+    text-transform: capitalize;
 
     &:hover {
       cursor: pointer;
@@ -40,12 +42,12 @@
     transition: all 0.2s ease;
   }
 
-  input[type="radio"]:not(:checked) + label:after {
+  input[type="radio"]:not(:checked) + label::after {
     opacity: 0;
     transform: scale(0);
   }
 
-  input[type="radio"]:checked + label:after {
+  input[type="radio"]:checked + label::after {
     opacity: 1;
     transform: scale(1);
   }
