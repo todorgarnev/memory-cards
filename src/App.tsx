@@ -2,6 +2,7 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 import './App.scss';
 
 import Card from './components/card/Card';
+import SettingsPanel from './components/settings/SettingsPanel';
 import { ICard } from './shared/card.interface';
 import * as Utils from './shared/utils';
 import * as Constants from './shared/constants';
@@ -51,6 +52,7 @@ const App: FunctionComponent = () => {
 
   return (
     <div className="app">
+      <SettingsPanel />
       <div className={`game${blocked ? ' blocked' : ''}`}>
         {
           items.map((item: ICard) => {
