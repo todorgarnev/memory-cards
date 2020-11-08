@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import './RadioGroup.scss';
 
-import { CardBackgroundType } from '../../../shared/enums/cardBackgroundType';
 import { GroupType } from '../../../shared/enums/groupType';
 import { InputGroupName } from '../../../shared/enums/inputGroupName';
 import RadioButton from '../../UI/RadioButton/RadioButton';
