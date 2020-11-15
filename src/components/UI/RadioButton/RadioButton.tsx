@@ -22,6 +22,9 @@ const RadioButton: FunctionComponent<RadioButtonProps> = ({ name, subType }) => 
       case InputGroupName.animation:
         dispatch({ type: 'SET_ANIMATION_TYPE', payload: value });
         break;
+      case InputGroupName.size:
+        dispatch({ type: 'SET_GAME_SIZE', payload: value });
+        break;
     }
   }
 

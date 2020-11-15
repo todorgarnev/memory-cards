@@ -1,0 +1,21 @@
+.game {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 10rem);
+  justify-content: center;
+  gap: 2rem;
+  margin: 0 auto;
+  width: 50%;
+  max-width: 50rem;
+
+  &.blocked {
+    pointer-events: none;
+  }
+}
+
+@media (orientation: portrait) {
+  .game {
+    grid-template-columns: repeat(auto-fill, 8rem);
+    width: 70vmin;
+    gap: 1rem;
+  }
+}

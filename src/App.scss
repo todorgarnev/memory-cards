@@ -1,31 +1,9 @@
 .app {
   padding: 1rem 5rem;
 
-  .game {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 10rem);
-    justify-content: center;
-    gap: 2rem;
-    margin: 0 auto;
-    width: 50%;
-    max-width: 50rem;
-
-    &.blocked {
-      pointer-events: none;
-    }
-  }
-
   .win {
     font-size: 3rem;
     font-weight: 600;
     text-align: center;
-  }
-}
-
-@media (orientation: portrait) {
-  .app .game {
-    grid-template-columns: repeat(auto-fill, 8rem);
-    width: 70vmin;
-    gap: 1rem;
   }
 }
