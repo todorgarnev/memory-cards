@@ -64,7 +64,7 @@ const Game: FunctionComponent<GameProps> = () => {
         }
       </div>
 
-      { win ? <div className='win'>Congrats</div> : ''}
+      { win ? <div className='win'>congrats</div> : ''}
       { win ? <button className='start-game' onClick={startAgain}>Start again</button> : ''}
     </React.Fragment>
   );

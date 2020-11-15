@@ -12,6 +12,31 @@
   }
 }
 
+.start-game {
+  padding: 0.5rem 1rem;
+  background: rebeccapurple;
+  color: whitesmoke;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  outline: none;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.win {
+  position: relative;
+  text-transform: uppercase;
+  color: rebeccapurple;
+}
+
 @media (orientation: portrait) {
   .game {
     grid-template-columns: repeat(auto-fill, 8rem);
