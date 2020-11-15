@@ -10,7 +10,8 @@ interface RadioButtonProps {
 }
 
 const RadioButton: FunctionComponent<RadioButtonProps> = ({ name, subType }) => {
-  const [, dispatch] = useContext(Context);
+  const [state, dispatch] = useContext(Context);
+
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputNameType: string = e.target.name;
     const value: string = e.target.value;
@@ -28,9 +29,20 @@ const RadioButton: FunctionComponent<RadioButtonProps> = ({ name, subType }) => 
     }
   }
 
+  const onChecked = (subType: string) => {
+    switch (subType) {
+      case state.backgroundType:
+      case state.gameSize:
+      case state.animationType:
+        return true;
+      default:
+        return false;
+    }
+  }
+
   return (
     <div className='option'>
-      <input type='radio' id={subType} name={name} value={subType} onChange={(e) => onChange(e)} />
+      <input type='radio' id={subType} name={name} value={subType} onChange={(e) => onChange(e)} checked={onChecked(subType)} />
       <label htmlFor={subType}>{subType}</label>
     </div>
   );
