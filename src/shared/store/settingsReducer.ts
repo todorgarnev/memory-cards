@@ -1,4 +1,6 @@
-const Reducer = (state: any, action: { type: string; payload: any; }) => {
+import { ISettingsStore } from "../interfaces/ISettingsStore";
+
+const Reducer = (state: ISettingsStore, action: { type: string; payload: any; }) => {
   switch (action.type) {
     case 'SET_BACKGROUND_TYPE':
       return {

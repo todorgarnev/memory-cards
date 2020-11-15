@@ -2,10 +2,11 @@ import React, { createContext, useReducer } from "react";
 import { AnimationType } from "../enums/animationType";
 import { CardBackgroundType } from "../enums/cardBackgroundType";
 import { GameSize } from "../enums/gameSize";
+import { ISettingsStore } from "../interfaces/ISettingsStore";
 import Reducer from './settingsReducer'
 
 
-const initialState = {
+const initialState: ISettingsStore = {
   backgroundType: CardBackgroundType.Numbers,
   gameSize: GameSize.Small,
   animationType: AnimationType.Rotate
