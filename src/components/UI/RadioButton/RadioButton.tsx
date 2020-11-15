@@ -12,8 +12,17 @@ interface RadioButtonProps {
 const RadioButton: FunctionComponent<RadioButtonProps> = ({ name, subType }) => {
   const [, dispatch] = useContext(Context);
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-    dispatch({ type: 'SET_BACKGROUND_TYPE', payload: e.target.value });
+    const inputNameType: string = e.target.name;
+    const value: string = e.target.value;
+
+    switch (inputNameType) {
+      case InputGroupName.cardBackground:
+        dispatch({ type: 'SET_BACKGROUND_TYPE', payload: value });
+        break;
+      case InputGroupName.animation:
+        dispatch({ type: 'SET_ANIMATION_TYPE', payload: value });
+        break;
+    }
   }
 
   return (

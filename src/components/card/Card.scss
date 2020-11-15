@@ -151,7 +151,17 @@
   }
 
   &.inactive {
-    animation: rotate 1s linear 0.8s forwards;
+    &.rotate {
+      animation: rotate 1s linear 0.8s forwards;
+    }
+
+    &.shake {
+      animation: shake 1s linear 0.8s forwards;
+    }
+
+    &.pulse {
+      animation: pulse 1s linear 0.8s forwards;
+    }
   }
 
   &.selected {
