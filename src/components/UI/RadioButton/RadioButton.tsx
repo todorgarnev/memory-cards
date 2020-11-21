@@ -2,7 +2,7 @@ import React, { FunctionComponent, useContext } from 'react';
 import './RadioButton.scss';
 
 import { InputGroupName } from '../../../shared/enums/inputGroupName';
-import { Context } from '../../../shared/store/settingsStore';
+import { Context } from '../../../shared/store/gameStore';
 
 interface RadioButtonProps {
   name: InputGroupName;
@@ -11,6 +11,7 @@ interface RadioButtonProps {
 
 const RadioButton: FunctionComponent<RadioButtonProps> = ({ name, subType }) => {
   const [state, dispatch] = useContext(Context);
+  const { backgroundType, gameSize, animationType } = state.settings;
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputNameType: string = e.target.name;
@@ -31,9 +32,9 @@ const RadioButton: FunctionComponent<RadioButtonProps> = ({ name, subType }) => 
 
   const onChecked = (subType: string) => {
     switch (subType) {
-      case state.backgroundType:
-      case state.gameSize:
-      case state.animationType:
+      case backgroundType:
+      case gameSize:
+      case animationType:
         return true;
       default:
         return false;

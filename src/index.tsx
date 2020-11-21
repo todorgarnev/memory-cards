@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Store from './shared/store/settingsStore';
+import Store from './shared/store/gameStore';
 
 ReactDOM.render(
   <React.StrictMode>
