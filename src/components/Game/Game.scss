@@ -12,10 +12,27 @@
   }
 }
 
-.win {
+.end-game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: rebeccapurple;
 
-  .start-game {
+  .counter {
+    margin-bottom: 4rem;
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+
+    .value {
+      margin-left: 1rem;
+      font-size: 5rem;
+      font-weight: 600;
+    }
+  }
+
+  .start {
     padding: 0.5rem 1rem;
     background: rebeccapurple;
     color: whitesmoke;

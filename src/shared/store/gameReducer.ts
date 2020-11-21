@@ -29,8 +29,8 @@ const Reducer = (state: IGameStore, action: { type: string; payload: any; }) => 
     case 'INCREASE_MOVES_COUNTER':
       return {
         ...state,
-        settings: {
-          ...state.settings,
+        game: {
+          ...state.game,
           movesCounter: state.game.movesCounter + 1
         }
       };

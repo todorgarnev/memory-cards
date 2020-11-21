@@ -29,7 +29,7 @@ const Game: FunctionComponent<GameProps> = () => {
         setItems((items: ICard[]) => GameLogic.setSelectedItemsToUnactive(items, selectedItems[0].key, selectedItems[1].key));
         setTimeout(() => {
           setBlocked(false);
-          dispatch({ type: 'SET_GAME_STARTED', payload: GameLogic.checkAllSelected(items) });
+          dispatch({ type: 'SET_GAME_STARTED', payload: !GameLogic.checkAllSelected(items) });
         }, Constants.guessedTimeout);
       } else {
         setTimeout(() => {
@@ -51,14 +51,14 @@ const Game: FunctionComponent<GameProps> = () => {
 
   const startAgain = (): void => {
     setItems(GameLogic.getInitialGameItems(settings.gameSize));
-    dispatch({ type: 'SET_GAME_STARTED', payload: false });
+    dispatch({ type: 'SET_GAME_STARTED', payload: true });
     dispatch({ type: 'RESET_MOVES_COUNTER' });
   }
 
   return (
     <React.Fragment>
       {
-        !game.started &&
+        game.started &&
         <div className={`game${blocked ? ' blocked' : ''}`}>
           {
             items.map((item: ICard) => {
@@ -69,10 +69,13 @@ const Game: FunctionComponent<GameProps> = () => {
       }
 
       {
-        game.started &&
-        <div className='win'>
-          <div className="counter">Moves {game.movesCounter}</div>
-          <button className='start-game' onClick={startAgain}>Start</button>
+        !game.started &&
+        <div className='end-game'>
+          {game.movesCounter > 0 &&
+            <div className="counter">
+              Moves: <span className='value'>{game.movesCounter}</span>
+            </div>}
+          <button className='start' onClick={startAgain}>Start</button>
         </div>
       }
     </React.Fragment>
