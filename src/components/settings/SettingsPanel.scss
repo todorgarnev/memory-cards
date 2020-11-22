@@ -1,7 +1,13 @@
 .settings-panel {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  justify-content: space-between;
   margin: 0 auto 5rem;
-  width: 70%;
+  width: 50rem;
+}
+
+@media (max-width: 599px) {
+  .settings-panel {
+    flex-direction: column;
+    width: 20rem;
+  }
 }
