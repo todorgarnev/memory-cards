@@ -99,3 +99,16 @@
     }
   }
 }
+
+@media (max-width: 440px) {
+  .game {
+    &.size-16 {
+      width: 28rem;
+    }
+
+    &.size-24,
+    &.size-32 {
+      width: 30rem;
+    }
+  }
+}

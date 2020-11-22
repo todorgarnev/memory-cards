@@ -252,3 +252,10 @@
     transform: scale(0.8);
   }
 }
+
+@media (max-width: 440px) {
+  .card {
+    margin: -1.5rem;
+    transform: scale(0.6);
+  }
+}
