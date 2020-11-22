@@ -59,7 +59,7 @@ const Game: FunctionComponent<GameProps> = () => {
     <React.Fragment>
       {
         game.started &&
-        <div className={`game${blocked ? ' blocked' : ''}`}>
+        <div className={`game size-${settings.gameSize}${blocked ? ' blocked' : ''}`}>
           {
             items.map((item: ICard) => {
               return <Card key={item.key} item={item} getSelectedItem={getSelectedItem} />

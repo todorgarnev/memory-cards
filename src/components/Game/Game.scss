@@ -1,11 +1,24 @@
 .game {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 10rem);
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
   margin: 0 auto;
-  width: 50%;
-  max-width: 50rem;
+
+  &.size-8 {
+    width: 48rem;
+  }
+
+  &.size-16 {
+    width: 59rem;
+  }
+
+  &.size-24 {
+    width: 72rem;
+  }
+
+  &.size-32 {
+    width: 96rem;
+  }
 
   &.blocked {
     pointer-events: none;
@@ -55,10 +68,34 @@
   }
 }
 
-@media (orientation: portrait) {
+@media (max-width: 1060px) {
   .game {
-    grid-template-columns: repeat(auto-fill, 8rem);
-    width: 70vmin;
-    gap: 1rem;
+    &.size-24 {
+      width: 48rem;
+    }
+
+    &.size-32 {
+      width: 72rem;
+    }
+  }
+}
+
+@media (max-width: 820px) {
+  .game {
+    &.size-32 {
+      width: 48rem;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .game {
+    &.size-8 {
+      width: 20rem;
+    }
+
+    &.size-16 {
+      width: 40rem;
+    }
   }
 }
